@@ -130,7 +130,7 @@ export const portfolioItems = [
     category: "Event / Booking",
     description: "DJ landing page – music, videos, booking via WhatsApp, unmatched vibe and energy.",
     image: "/portfolio/dj03-screenshot.png",
-    demoUrl: "https://dj-03.vercel.app/",
+    demoUrl: "https://www.dj03ent.com",
     tags: ["Next.js", "Booking", "Music"],
   },
   {
