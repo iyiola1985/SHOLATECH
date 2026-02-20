@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-sora), system-ui, sans-serif;
+  --font-family-display: var(--font-syne), system-ui, sans-serif;
+  --font-display: var(--font-syne), system-ui, sans-serif;
+  --font-family-nav: var(--font-outfit), system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: #0f172a;
+  --color-primary-light: #1e293b;
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+  --color-muted: #64748b;
+  --color-card: #f8fafc;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-card: 0 10px 40px -15px rgb(0 0 0 / 0.1);
+}
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+body {
+  background-color: #f8fafc !important;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+}
+
+/* Premium display typography */
+.font-display {
+  letter-spacing: -0.02em;
+}
+
+/* Header / nav font */
+.font-nav {
+  font-family: var(--font-outfit), system-ui, sans-serif;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation utilities */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+/* Stagger delays for list animations */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* Button focus ring */
+.btn-focus:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
