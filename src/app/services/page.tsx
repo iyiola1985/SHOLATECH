@@ -1,76 +1,74 @@
-import type { Metadata } from "next";
+import Link from "next/link";
 import Button from "@/components/Button";
 import { services } from "@/data/config";
-
-export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "Website development, UI/UX design, e-commerce, event booking sites, and graphic design.",
-};
 
 export default function ServicesPage() {
   return (
     <>
-      <section className="group/hero relative overflow-hidden bg-slate-900 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 transition-all duration-500 hover:bg-slate-800">
+      <section className="group/hero relative overflow-hidden bg-slate-900 px-4 py-16 sm:px-6 sm:py-20 transition-all duration-500 hover:bg-slate-800">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(245,158,11,0.12),transparent)] opacity-0 transition-opacity duration-500 group-hover/hero:opacity-100" />
-        <div className="relative mx-auto max-w-4xl text-center transition-transform duration-300 group-hover/hero:scale-[1.01]">
-          <h1 className="font-display text-4xl font-bold text-white sm:text-5xl">
-            Our Services
+        <div className="relative mx-auto max-w-4xl text-center">
+          <h1 className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            What We Do
           </h1>
           <p className="mt-4 text-lg text-slate-300">
-            From websites to branding — we deliver quality and clarity.
+            End-to-end digital services for brands and businesses.
           </p>
         </div>
       </section>
 
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-        {services.map((service, index) => (
-          <section
-            key={service.id}
-            id={service.id}
-            className="scroll-mt-24 border-b border-slate-200 py-12 last:border-0 first:pt-16"
-          >
-            <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-8">
-              <div className="flex-shrink-0 text-4xl" aria-hidden>
-                {service.icon}
-              </div>
-              <div className="min-w-0 flex-1">
-                <h2 className="font-display text-2xl font-bold text-slate-900 sm:text-3xl">
-                  {service.title}
-                </h2>
-                <p className="mt-3 text-slate-600">{service.description}</p>
-                <ul className="mt-4 space-y-2">
-                  {service.benefits.map((benefit) => (
-                    <li
-                      key={benefit}
-                      className="flex items-start gap-2 text-slate-700"
-                    >
-                      <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-amber-500" />
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-6">
-                  <Button href="/booking" className="px-6 py-2.5 text-sm">
-                    Get a Quote
-                  </Button>
+      <section className="bg-slate-50 px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-4xl space-y-16">
+          {services.map((service) => (
+            <article
+              key={service.id}
+              id={service.id}
+              className="scroll-mt-24 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-200/80 hover:-translate-y-0.5 sm:p-8"
+            >
+              <div className="flex flex-wrap items-start gap-4">
+                <span className="text-4xl" aria-hidden>
+                  {service.icon}
+                </span>
+                <div className="min-w-0 flex-1">
+                  <h2 className="font-display text-2xl font-bold text-slate-900 sm:text-3xl">
+                    {service.title}
+                  </h2>
+                  <p className="mt-2 text-slate-600">
+                    {service.shortDesc}
+                  </p>
+                  {"startingPrice" in service && service.startingPrice && (
+                    <p className="mt-2 text-sm font-medium text-amber-600">
+                      {service.startingPrice}
+                    </p>
+                  )}
                 </div>
               </div>
-            </div>
-          </section>
-        ))}
-      </div>
-
-      <section className="bg-slate-100 px-4 py-16 sm:px-6 sm:py-20">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-2xl font-bold text-slate-900">
-            Not sure which service fits?
-          </h2>
-          <p className="mt-3 text-slate-600">
-            Book a call and we&apos;ll help you choose the right option.
-          </p>
-          <Button href="/booking" className="mt-6 px-8 py-4">
-            Book a Project
+              {"description" in service && service.description && (
+                <p className="mt-6 text-slate-700">
+                  {service.description}
+                </p>
+              )}
+              {"benefits" in service && Array.isArray(service.benefits) && service.benefits.length > 0 && (
+                <div className="mt-6">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500">
+                    What you get
+                  </h3>
+                  <ul className="mt-3 space-y-2">
+                    {service.benefits.map((benefit, i) => (
+                      <li key={i} className="flex items-start gap-2 text-slate-700">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </article>
+          ))}
+        </div>
+        <div className="mt-16 text-center">
+          <Button href="/booking" className="px-8 py-3 transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+            Get a Quote
           </Button>
         </div>
       </section>

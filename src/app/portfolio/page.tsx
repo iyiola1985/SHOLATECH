@@ -1,25 +1,17 @@
-import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { portfolioItems } from "@/data/config";
-
-export const metadata: Metadata = {
-  title: "Portfolio",
-  description:
-    "Browse our web development, e-commerce, UI/UX, and graphic design projects.",
-};
 
 export default function PortfolioPage() {
   return (
     <>
-      <section className="group/hero relative overflow-hidden bg-slate-900 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 transition-all duration-500 hover:bg-slate-800">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(245,158,11,0.12),transparent)] opacity-0 transition-opacity duration-500 group-hover/hero:opacity-100" />
-        <div className="relative mx-auto max-w-4xl text-center transition-transform duration-300 group-hover/hero:scale-[1.01]">
+      <section className="relative overflow-hidden bg-slate-900 px-4 py-16 sm:px-6 sm:py-20">
+        <div className="relative mx-auto max-w-4xl text-center">
           <h1 className="font-display text-4xl font-bold text-white sm:text-5xl">
-            Portfolio
+            Our Work
           </h1>
           <p className="mt-4 text-lg text-slate-300">
-            Recent projects across web, design, and e-commerce.
+            A selection of projects we&apos;ve built — websites, e-commerce, and digital experiences.
           </p>
         </div>
       </section>
@@ -27,59 +19,66 @@ export default function PortfolioPage() {
       <section className="bg-slate-50 px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {portfolioItems.map((item) => (
-              <article
-                key={item.id}
-                className="group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm transition hover:shadow-lg hover:bg-slate-100"
-              >
-                <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-slate-200 to-slate-300">
-                  {(item.image.startsWith("http") || item.image.startsWith("/")) ? (
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover transition duration-300 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  ) : (
-                    <span className="flex h-full w-full items-center justify-center text-5xl font-display font-bold text-slate-400">
-                      {item.title.charAt(0)}
-                    </span>
-                  )}
-                </div>
-                <div className="p-5">
-                  <span className="text-xs font-medium uppercase tracking-wider text-amber-600">
-                    {item.category}
-                  </span>
-                  <h2 className="mt-2 font-display text-lg font-semibold text-slate-900">
-                    {item.title}
-                  </h2>
-                  <p className="mt-2 text-sm text-slate-600">
-                    {item.description}
-                  </p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {item.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs text-slate-600"
-                      >
-                        {tag}
+            {portfolioItems.map((item) => {
+              const href = "demoUrl" in item && item.demoUrl ? item.demoUrl : "#";
+              const isExternal = href.startsWith("http");
+              const image = "image" in item ? item.image : null;
+              return (
+                <div
+                  key={item.id}
+                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg"
+                >
+                  <div className="relative aspect-video overflow-hidden bg-slate-200">
+                    {image ? (
+                      <Image
+                        src={image}
+                        alt={item.title}
+                        fill
+                        className="object-cover transition duration-300 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        unoptimized
+                      />
+                    ) : (
+                      <span className="flex h-full w-full items-center justify-center text-4xl font-display font-bold text-slate-400">
+                        {item.title.charAt(0)}
                       </span>
-                    ))}
+                    )}
                   </div>
-                  {item.demoUrl && item.demoUrl !== "#" && (
-                    <Link
-                      href={item.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 inline-block text-sm font-medium text-amber-600 transition hover:text-amber-700"
-                    >
-                      Visit site →
-                    </Link>
-                  )}
+                  <div className="p-4">
+                    <span className="text-xs font-medium uppercase tracking-wider text-amber-600">
+                      {item.category}
+                    </span>
+                    <h2 className="mt-1 font-display text-lg font-semibold text-slate-900">
+                      {item.title}
+                    </h2>
+                    <p className="mt-2 text-sm text-slate-600 line-clamp-2">
+                      {item.description}
+                    </p>
+                    {isExternal && (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-amber-600 hover:text-amber-700"
+                      >
+                        Visit site
+                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </article>
-            ))}
+              );
+            })}
+          </div>
+          <div className="mt-12 text-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-xl bg-amber-500 px-6 py-3 font-semibold text-white shadow-md hover:bg-amber-600"
+            >
+              Start your project
+            </Link>
           </div>
         </div>
       </section>
