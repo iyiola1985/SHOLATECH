@@ -42,6 +42,7 @@ export const portfolioItems = [
   { id: 6, title: "FreshCart", category: "E-commerce", description: "Supermarket for fresh grocery — online shopping and convenient home delivery.", image: "/portfolio/freshcart.png", demoUrl: "https://ecommerce-hazel-five.vercel.app" },
   { id: 7, title: "Zaza Logistics", category: "Logistics", description: "Global logistics and sourcing — buy, ship, and deliver goods safely across the world.", image: "/portfolio/zaza.png", demoUrl: "https://zaza-global-connect.vercel.app" },
   { id: 8, title: "Nature Stone Construction", category: "Construction & Industrial", description: "Hydraulic block machines and premium paving solutions — QT4-20 flagship production, nationwide logistics, and precision infrastructure surfacing.", image: "/portfolio/naturestone.png", demoUrl: "https://nature-stone-contruction-web.vercel.app/" },
+  { id: 9, title: "VIBELORD", category: "Event / MC", description: "Coming-soon landing page for a professional hype man and MC — cinematic dark aesthetic, typewriter hero, and launch teaser.", image: "/portfolio/vibelord.png", demoUrl: "https://www.iamvibelord.com/" },
 ];
 
 export const testimonials = [
