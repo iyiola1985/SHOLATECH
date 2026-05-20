@@ -91,14 +91,14 @@ export default function AdminReviewsPage() {
     return (
       <div className="min-h-screen bg-slate-100 px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-sm">
-          <h1 className="font-display text-xl font-bold text-slate-900">Admin: Client reviews</h1>
+          <h1 className="type-panel-title text-slate-900">Admin: Client reviews</h1>
           <p className="mt-2 text-sm text-slate-600">Enter your admin secret to manage reviews.</p>
           <form onSubmit={handleUnlock} className="mt-6 space-y-4">
             <div>
               <label htmlFor="admin-secret" className="block text-sm font-medium text-slate-700">Admin secret</label>
               <input id="admin-secret" type="password" value={inputSecret} onChange={(e) => setInputSecret(e.target.value)} placeholder="From ADMIN_SECRET in .env" className="mt-1 block w-full rounded-xl border border-slate-300 px-4 py-2.5 shadow-sm focus:border-amber-500 focus:ring-1 focus:ring-amber-500" autoComplete="off" />
             </div>
-            <button type="submit" className="w-full rounded-xl bg-amber-500 px-4 py-2.5 font-semibold text-white shadow hover:bg-amber-600">Unlock</button>
+            <button type="submit" className="font-display w-full rounded-xl bg-amber-500 px-4 py-2.5 text-sm font-bold uppercase tracking-wide text-white shadow hover:bg-amber-600">Unlock</button>
           </form>
           <p className="mt-6 text-center"><Link href="/" className="text-sm text-slate-500 hover:text-slate-700">Back to site</Link></p>
         </div>
@@ -111,7 +111,7 @@ export default function AdminReviewsPage() {
       <div className="mx-auto max-w-4xl">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h1 className="font-display text-2xl font-bold text-slate-900">Client reviews (admin)</h1>
+            <h1 className="type-section-title text-slate-900">Client reviews (admin)</h1>
             <p className="mt-1 text-sm text-slate-600">Delete reviews you don&apos;t want shown on the site.</p>
           </div>
           <div className="flex items-center gap-3">

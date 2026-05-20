@@ -48,11 +48,11 @@ export default function FeedbackPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-30%,rgba(245,158,11,0.2),transparent_50%)] opacity-80 transition-opacity duration-500 group-hover/hero:opacity-100" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
         <div className="relative mx-auto max-w-4xl text-center transition-transform duration-300 group-hover/hero:scale-[1.01]">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-400">Past client?</p>
-          <h1 className="font-display mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <p className="type-badge text-amber-400">Past client?</p>
+          <h1 className="type-page-hero mt-4 text-white">
             Leave a review for <span className="bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">new clients</span>
           </h1>
-          <p className="mt-6 text-lg text-slate-300 sm:text-xl max-w-2xl mx-auto">
+          <p className="type-subtitle mt-6 mx-auto max-w-2xl text-slate-300">
             If you&apos;ve worked with us, your review helps new customers get to know SholaTech. It&apos;s shown on this site so others can see your experience.
           </p>
         </div>
@@ -74,7 +74,7 @@ export default function FeedbackPage() {
                   </div>
                 ) : (
                   <>
-                    <h2 className="font-display text-xl font-semibold text-slate-900">Leave your review</h2>
+                    <h2 className="type-panel-title text-slate-900">Leave your review</h2>
                     <p className="mt-1 text-sm text-slate-500">For clients we&apos;ve worked with. Your review is shown to new visitors (name, project type & message).</p>
                     <form onSubmit={handleSubmit} className="mt-6 space-y-4">
                       <div>
@@ -105,8 +105,8 @@ export default function FeedbackPage() {
             <div className="lg:col-span-3">
               <div className="flex items-center justify-between gap-4 mb-8">
                 <div>
-                  <h2 className="font-display text-2xl font-bold text-slate-900">What our clients say</h2>
-                  <p className="mt-1 text-slate-600">Reviews from people we&apos;ve worked with — for new customers to read</p>
+                  <h2 className="type-section-title text-slate-900">What our clients say</h2>
+                  <p className="type-subtitle mt-1 text-slate-600">Reviews from people we&apos;ve worked with — for new customers to read</p>
                 </div>
                 {feed.length > 0 && <span className="rounded-full bg-amber-500/15 px-3 py-1 text-sm font-medium text-amber-800">{feed.length} {feed.length === 1 ? "review" : "reviews"}</span>}
               </div>

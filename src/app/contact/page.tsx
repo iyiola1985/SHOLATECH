@@ -46,10 +46,10 @@ export default function ContactPage() {
       <section className="group/hero relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 transition-all duration-500 hover:bg-slate-800">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-30%,rgba(245,158,11,0.15),transparent_50%)] opacity-80 transition-opacity duration-500 group-hover/hero:opacity-100" />
         <div className="relative mx-auto max-w-4xl text-center transition-transform duration-300 group-hover/hero:scale-[1.01]">
-          <h1 className="font-display text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl transition-colors duration-300 group-hover/hero:text-white">
+          <h1 className="type-page-hero text-white transition-colors duration-300 group-hover/hero:text-white">
             Contact Us
           </h1>
-          <p className="mt-6 text-xl text-slate-300 sm:text-2xl max-w-2xl mx-auto transition-colors duration-300 group-hover/hero:text-slate-200">
+          <p className="type-subtitle mt-6 mx-auto max-w-2xl text-slate-300 transition-colors duration-300 group-hover/hero:text-slate-200">
             Have a question or want to chat? We&apos;ll get back to you soon.
           </p>
         </div>
@@ -59,19 +59,19 @@ export default function ContactPage() {
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-10 lg:grid-cols-2">
             <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-200/60 sm:p-10">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Get in touch</h2>
-              <p className="mt-3 text-base text-slate-600 sm:text-lg">
+              <h2 className="type-panel-title text-slate-900">Get in touch</h2>
+              <p className="type-subtitle mt-3 text-slate-600">
                 Email or call us for a quick response. You can also send a message using the form.
               </p>
               <ul className="mt-8 space-y-5">
                 <li>
-                  <span className="text-sm font-semibold uppercase tracking-wider text-slate-500">Email</span>
+                  <span className="type-badge text-slate-500">Email</span>
                   <a href={`mailto:${siteConfig.email}`} className="mt-1.5 block text-lg text-slate-900 transition hover:text-amber-600 font-medium">
                     {siteConfig.email}
                   </a>
                 </li>
                 <li>
-                  <span className="text-sm font-semibold uppercase tracking-wider text-slate-500">Phone</span>
+                  <span className="type-badge text-slate-500">Phone</span>
                   <a href={`tel:${siteConfig.phoneTel}`} className="mt-1.5 block text-lg text-slate-900 transition hover:text-amber-600 font-medium">
                     {siteConfig.phone}
                   </a>
@@ -83,7 +83,7 @@ export default function ContactPage() {
                     href={`https://wa.me/${siteConfig.whatsapp.replace(/\D/g, "")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-display inline-flex items-center gap-4 rounded-2xl bg-[#25D366] px-6 py-4 text-lg font-bold tracking-tight text-white shadow-lg shadow-[#25D366]/25 ring-2 ring-white/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#25D366]/30 hover:ring-white/30 hover:bg-[#20BD5A]"
+                    className="font-display inline-flex items-center gap-4 rounded-2xl bg-[#25D366] px-6 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-[#25D366]/25 ring-2 ring-white/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#25D366]/30 hover:ring-white/30 hover:bg-[#20BD5A] sm:text-base"
                     aria-label="Chat on WhatsApp"
                   >
                     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20">
@@ -104,16 +104,16 @@ export default function ContactPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p className="font-display text-2xl font-bold tracking-tight text-slate-900">Message sent</p>
-                  <p className="mt-3 text-lg text-slate-600">We&apos;ll reply as soon as we can.</p>
+                  <p className="type-panel-title text-slate-900">Message sent</p>
+                  <p className="type-subtitle mt-3 text-slate-600">We&apos;ll reply as soon as we can.</p>
                   <Link href="/" className="mt-6 inline-block text-base font-medium text-amber-600 hover:text-amber-700 transition">
                     Back to home
                   </Link>
                 </div>
               ) : (
                 <>
-                  <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Send a message</h2>
-                  <p className="mt-2 text-base text-slate-600 sm:text-lg">We&apos;ll get back to you shortly.</p>
+                  <h2 className="type-panel-title text-slate-900">Send a message</h2>
+                  <p className="type-subtitle mt-2 text-slate-600">We&apos;ll get back to you shortly.</p>
                   <form onSubmit={handleSubmit} className="mt-8 space-y-5">
                     <div className="grid gap-5 sm:grid-cols-2">
                       <div>

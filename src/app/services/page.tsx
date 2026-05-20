@@ -8,10 +8,10 @@ export default function ServicesPage() {
       <section className="group/hero relative overflow-hidden bg-slate-900 px-4 py-16 sm:px-6 sm:py-20 transition-all duration-500 hover:bg-slate-800">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(245,158,11,0.12),transparent)] opacity-0 transition-opacity duration-500 group-hover/hero:opacity-100" />
         <div className="relative mx-auto max-w-4xl text-center">
-          <h1 className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <h1 className="type-page-hero text-white">
             What We Do
           </h1>
-          <p className="mt-4 text-lg text-slate-300">
+          <p className="type-subtitle mt-4 text-slate-300">
             End-to-end digital services for brands and businesses.
           </p>
         </div>
@@ -30,14 +30,14 @@ export default function ServicesPage() {
                   {service.icon}
                 </span>
                 <div className="min-w-0 flex-1">
-                  <h2 className="font-display text-2xl font-bold text-slate-900 sm:text-3xl">
+                  <h2 className="type-card-title text-slate-900">
                     {service.title}
                   </h2>
-                  <p className="mt-2 text-slate-600">
+                  <p className="type-subtitle mt-2 text-slate-600">
                     {service.shortDesc}
                   </p>
                   {"startingPrice" in service && service.startingPrice && (
-                    <p className="mt-2 text-sm font-medium text-amber-600">
+                    <p className="type-perk mt-2 text-amber-600">
                       {service.startingPrice}
                     </p>
                   )}
@@ -50,7 +50,7 @@ export default function ServicesPage() {
               )}
               {"benefits" in service && Array.isArray(service.benefits) && service.benefits.length > 0 && (
                 <div className="mt-6">
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500">
+                  <h3 className="type-badge text-slate-500">
                     What you get
                   </h3>
                   <ul className="mt-3 space-y-2">

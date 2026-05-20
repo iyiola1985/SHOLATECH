@@ -1,26 +1,20 @@
 import type { Metadata } from "next";
-import { DM_Sans, Outfit, Syne } from "next/font/google";
+import { Barlow, Oswald } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { siteConfig } from "@/data/config";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const barlow = Barlow({
+  variable: "--font-barlow",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const oswald = Oswald({
+  variable: "--font-oswald",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-});
-
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -49,8 +43,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${outfit.variable} ${syne.variable}`}>
-      <body className="min-h-screen bg-white font-sans text-slate-800 antialiased">
+    <html lang="en" className={`${barlow.variable} ${oswald.variable}`}>
+      <body className="min-h-screen bg-white font-sans text-base text-slate-800 antialiased">
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

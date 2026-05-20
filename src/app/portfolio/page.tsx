@@ -7,10 +7,10 @@ export default function PortfolioPage() {
     <>
       <section className="relative overflow-hidden bg-slate-900 px-4 py-16 sm:px-6 sm:py-20">
         <div className="relative mx-auto max-w-4xl text-center">
-          <h1 className="font-display text-4xl font-bold text-white sm:text-5xl">
+          <h1 className="type-page-hero text-white">
             Our Work
           </h1>
-          <p className="mt-4 text-lg text-slate-300">
+          <p className="type-subtitle mt-4 text-slate-300">
             A selection of projects we&apos;ve built — websites, e-commerce, and digital experiences.
           </p>
         </div>
@@ -45,13 +45,13 @@ export default function PortfolioPage() {
                     )}
                   </div>
                   <div className="p-4">
-                    <span className="text-xs font-medium uppercase tracking-wider text-amber-600">
+                    <span className="type-badge text-amber-600">
                       {item.category}
                     </span>
-                    <h2 className="mt-1 font-display text-lg font-semibold text-slate-900">
+                    <h2 className="type-card-title mt-1.5 text-slate-900">
                       {item.title}
                     </h2>
-                    <p className="mt-2 text-sm text-slate-600 line-clamp-2">
+                    <p className="type-subtitle mt-2 line-clamp-2 text-slate-600">
                       {item.description}
                     </p>
                     {isExternal && (
@@ -59,7 +59,7 @@ export default function PortfolioPage() {
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-amber-600 hover:text-amber-700"
+                        className="type-perk mt-3 inline-flex items-center gap-1.5 text-amber-600 hover:text-amber-700"
                       >
                         Visit site
                         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,7 +75,7 @@ export default function PortfolioPage() {
           <div className="mt-12 text-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-xl bg-amber-500 px-6 py-3 font-semibold text-white shadow-md hover:bg-amber-600"
+              className="font-display inline-flex items-center justify-center rounded-xl bg-amber-500 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-md hover:bg-amber-600"
             >
               Start your project
             </Link>

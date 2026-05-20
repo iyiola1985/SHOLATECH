@@ -55,10 +55,10 @@ export default function BookingPage() {
       <section className="group/hero relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 transition-all duration-500 hover:bg-slate-800">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-30%,rgba(245,158,11,0.15),transparent_50%)] opacity-80 transition-opacity duration-500 group-hover/hero:opacity-100" />
         <div className="relative mx-auto max-w-4xl text-center transition-transform duration-300 group-hover/hero:scale-[1.01]">
-          <h1 className="font-display text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl transition-colors duration-300 group-hover/hero:text-white">
+          <h1 className="type-page-hero text-white transition-colors duration-300 group-hover/hero:text-white">
             Book a Project
           </h1>
-          <p className="mt-6 text-xl text-slate-300 sm:text-2xl max-w-2xl mx-auto transition-colors duration-300 group-hover/hero:text-slate-200">
+          <p className="type-subtitle mt-6 mx-auto max-w-2xl text-slate-300 transition-colors duration-300 group-hover/hero:text-slate-200">
             Tell us about your project and we&apos;ll get back with a plan and quote.
           </p>
         </div>
@@ -74,8 +74,8 @@ export default function BookingPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <p className="font-display text-2xl font-bold tracking-tight text-slate-900">Request received</p>
-                <p className="mt-3 text-lg text-slate-600">
+                <p className="type-panel-title text-slate-900">Request received</p>
+                <p className="type-subtitle mt-3 text-slate-600">
                   We&apos;ll review your project and get back to you soon.
                 </p>
                 <Link href="/" className="mt-6 inline-block text-base font-medium text-amber-600 hover:text-amber-700 transition">
@@ -84,8 +84,8 @@ export default function BookingPage() {
               </div>
             ) : (
               <>
-                <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Project details</h2>
-                <p className="mt-2 text-base text-slate-600">
+                <h2 className="type-panel-title text-slate-900">Project details</h2>
+                <p className="type-subtitle mt-2 text-slate-600">
                   Name, email, and project description are required. Other fields help us respond better.
                 </p>
                 <form onSubmit={handleSubmit} className="mt-8 space-y-5">

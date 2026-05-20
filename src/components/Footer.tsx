@@ -9,27 +9,27 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link href="/" className="inline-block" aria-label={`${siteConfig.name} - Home`}>
-              <Image src={siteConfig.logo} alt={`${siteConfig.name} - ${siteConfig.tagline}`} width={240} height={100} className="h-[100px] w-auto object-contain" unoptimized />
+              <Image src={siteConfig.logo} alt={`${siteConfig.name} - ${siteConfig.tagline}`} width={240} height={100} className="h-12 w-auto object-contain sm:h-16 md:h-20" unoptimized />
             </Link>
-            <p className="mt-3 text-sm text-slate-600">Websites, design, and digital solutions.</p>
+            <p className="mt-3 type-subtitle text-slate-600">Websites, design, and digital solutions.</p>
           </div>
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500">Quick Links</h3>
+            <h3 className="type-badge text-slate-500">Quick Links</h3>
             <ul className="mt-3 space-y-2">
               {navLinks.map((link) => (
-                <li key={link.href}><Link href={link.href} className="text-sm text-slate-600 transition hover:text-slate-900">{link.label}</Link></li>
+                <li key={link.href}><Link href={link.href} className="type-subtitle text-slate-600 transition hover:text-slate-900">{link.label}</Link></li>
               ))}
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500">Contact</h3>
-            <ul className="mt-3 space-y-2 text-sm text-slate-600">
+            <h3 className="type-badge text-slate-500">Contact</h3>
+            <ul className="mt-3 space-y-2 type-subtitle text-slate-600">
               <li><a href={`mailto:${siteConfig.email}`} className="hover:text-slate-900">{siteConfig.email}</a></li>
               <li><a href={`tel:${siteConfig.phoneTel}`} className="hover:text-slate-900">{siteConfig.phone}</a></li>
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500">Social</h3>
+            <h3 className="type-badge text-slate-500">Social</h3>
             <div className="mt-3 flex gap-4">
               <a href={siteConfig.social.twitter} target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-slate-700" aria-label="Twitter">
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z" /></svg>
@@ -43,7 +43,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-10 border-t border-slate-200 pt-8 text-center text-sm text-slate-500">© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</div>
+        <div className="mt-10 border-t border-slate-200 pt-8 text-center type-perk text-slate-500">© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</div>
       </div>
     </footer>
   );
