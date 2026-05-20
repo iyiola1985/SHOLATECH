@@ -43,6 +43,7 @@ export const portfolioItems = [
   { id: 7, title: "Zaza Logistics", category: "Logistics", description: "Global logistics and sourcing — buy, ship, and deliver goods safely across the world.", image: "/portfolio/zaza.png", demoUrl: "https://zaza-global-connect.vercel.app" },
   { id: 8, title: "Nature Stone Construction", category: "Construction & Industrial", description: "Hydraulic block machines and premium paving solutions — QT4-20 flagship production, nationwide logistics, and precision infrastructure surfacing.", image: "/portfolio/naturestone.png", demoUrl: "https://nature-stone-contruction-web.vercel.app/" },
   { id: 9, title: "VIBELORD", category: "Event / MC", description: "Coming-soon landing page for a professional hype man and MC — cinematic dark aesthetic, typewriter hero, and launch teaser.", image: "/portfolio/vibelord.png", demoUrl: "https://www.iamvibelord.com/" },
+  { id: 10, title: "ContentCraft AI", category: "SaaS / AI Tools", description: "Template-powered content generator for captions, ad copy, hashtags, and bios — nine tools, zero API costs, browser-first privacy.", image: "/portfolio/contentcraft.png", demoUrl: "https://content-craft-ai-three.vercel.app/" },
 ];
 
 export const testimonials = [
