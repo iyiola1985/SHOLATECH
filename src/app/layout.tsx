@@ -3,6 +3,7 @@ import { Barlow, Oswald } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { siteConfig } from "@/data/config";
 
 const barlow = Barlow({
@@ -45,6 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${barlow.variable} ${oswald.variable}`}>
       <body className="min-h-screen bg-white font-sans text-base text-slate-800 antialiased">
+        <GoogleAnalytics />
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
