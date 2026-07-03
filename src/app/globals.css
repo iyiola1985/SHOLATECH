@@ -65,6 +65,14 @@ body {
   line-height: 1.55;
 }
 
+.type-hero-subtitle {
+  font-family: var(--font-barlow), system-ui, sans-serif;
+  font-size: clamp(1.0625rem, 2.25vw, 1.3125rem);
+  font-weight: 300;
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+}
+
 .type-perk {
   font-family: var(--font-oswald), system-ui, sans-serif;
   font-size: 11px;
