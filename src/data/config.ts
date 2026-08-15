@@ -128,12 +128,22 @@ export const services = [
 
 export const teamMembers = [
   {
+    id: "shola",
+    name: "Shola",
+    title: "Founder & CEO",
+    department: "Leadership",
+    image: "/team/shola.png",
+    bio: "Founder of SholaTech — building websites, UI design, and digital growth for brands across Africa and beyond.",
+    linkedin: "https://www.linkedin.com/in/ebenezer-iyiola/",
+  },
+  {
     id: "perpetua",
     name: "Perpetua",
     title: "Head of UI Design",
     department: "Design",
     image: "/team/perpetua.png",
     bio: "Leads product and UI design at SholaTech — crafting clean, conversion-focused interfaces and design systems for web and digital products.",
+    linkedin: "https://www.linkedin.com/in/perpetua-omare-9b2134234/",
   },
 ];
 
@@ -275,6 +285,8 @@ export const portfolioItems = [
       "Clean luxury skincare — botanical formulas, product shop, philosophy storytelling, and a refined brand experience for cruelty-free, vegan skincare.",
     image: "/portfolio/velorabeauty.png",
     demoUrl: "https://beautycompany.vercel.app/",
+    imagePosition: "object-top",
+    featured: true,
   },
   {
     id: 13,

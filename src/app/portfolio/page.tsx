@@ -3,13 +3,14 @@ import Image from "next/image";
 import { portfolioItems } from "@/data/config";
 
 export default function PortfolioPage() {
+  const featured = portfolioItems.find((item) => "featured" in item && item.featured);
+  const rest = portfolioItems.filter((item) => !("featured" in item && item.featured));
+
   return (
     <>
       <section className="relative overflow-hidden bg-slate-900 px-4 py-16 sm:px-6 sm:py-20">
         <div className="relative mx-auto max-w-4xl text-center">
-          <h1 className="type-page-hero text-white">
-            Our Work
-          </h1>
+          <h1 className="type-page-hero text-white">Our Work</h1>
           <p className="type-subtitle mt-4 text-slate-300">
             A selection of projects we&apos;ve built — websites, e-commerce, and digital experiences.
           </p>
@@ -18,11 +19,51 @@ export default function PortfolioPage() {
 
       <section className="bg-slate-50 px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-6xl">
+          {featured && (
+            <a
+              href={featured.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mb-10 block overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:shadow-xl"
+            >
+              <div className="grid lg:grid-cols-2">
+                <div className="relative aspect-[16/11] overflow-hidden bg-gradient-to-br from-[#F7EDE8] to-[#F3E4DC] lg:aspect-auto lg:min-h-[320px]">
+                  <Image
+                    src={featured.image}
+                    alt={featured.title}
+                    fill
+                    className={`object-cover transition duration-500 group-hover:scale-[1.03] ${
+                      "imagePosition" in featured && featured.imagePosition
+                        ? featured.imagePosition
+                        : "object-center"
+                    }`}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    unoptimized
+                    priority
+                  />
+                </div>
+                <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-12">
+                  <span className="type-badge text-amber-600">{featured.category}</span>
+                  <h2 className="type-section-title mt-3 text-slate-900">{featured.title}</h2>
+                  <p className="type-subtitle mt-4 text-slate-600">{featured.description}</p>
+                  <span className="type-perk mt-6 inline-flex items-center gap-2 text-amber-600">
+                    Visit site
+                    <svg className="h-4 w-4 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          )}
+
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {portfolioItems.map((item) => {
+            {rest.map((item) => {
               const href = "demoUrl" in item && item.demoUrl ? item.demoUrl : "#";
               const isExternal = href.startsWith("http");
               const image = "image" in item ? item.image : null;
+              const imagePosition =
+                "imagePosition" in item && item.imagePosition ? item.imagePosition : "object-center";
               return (
                 <div
                   key={item.id}
@@ -34,7 +75,7 @@ export default function PortfolioPage() {
                         src={image}
                         alt={item.title}
                         fill
-                        className="object-cover transition duration-300 group-hover:scale-105"
+                        className={`object-cover transition duration-300 group-hover:scale-105 ${imagePosition}`}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         unoptimized
                       />
@@ -45,15 +86,9 @@ export default function PortfolioPage() {
                     )}
                   </div>
                   <div className="p-4">
-                    <span className="type-badge text-amber-600">
-                      {item.category}
-                    </span>
-                    <h2 className="type-card-title mt-1.5 text-slate-900">
-                      {item.title}
-                    </h2>
-                    <p className="type-subtitle mt-2 line-clamp-2 text-slate-600">
-                      {item.description}
-                    </p>
+                    <span className="type-badge text-amber-600">{item.category}</span>
+                    <h2 className="type-card-title mt-1.5 text-slate-900">{item.title}</h2>
+                    <p className="type-subtitle mt-2 line-clamp-2 text-slate-600">{item.description}</p>
                     {isExternal && (
                       <a
                         href={href}
