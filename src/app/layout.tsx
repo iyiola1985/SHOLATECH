@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Barlow, Oswald } from "next/font/google";
+import { Barlow, Cormorant_Garamond, Oswald } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -16,6 +16,13 @@ const oswald = Oswald({
   variable: "--font-oswald",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -46,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${barlow.variable} ${oswald.variable}`}>
+    <html lang="en" className={`${barlow.variable} ${oswald.variable} ${cormorant.variable}`}>
       <body className="min-h-screen bg-white font-sans text-base text-slate-800 antialiased">
         <GoogleAnalytics />
         <Navbar />

@@ -66,11 +66,12 @@ body {
 }
 
 .type-hero-subtitle {
-  font-family: var(--font-barlow), system-ui, sans-serif;
-  font-size: clamp(1.0625rem, 2.25vw, 1.3125rem);
-  font-weight: 300;
-  line-height: 1.75;
-  letter-spacing: 0.02em;
+  font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  font-size: clamp(1.25rem, 2.8vw, 1.625rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
 }
 
 .type-perk {

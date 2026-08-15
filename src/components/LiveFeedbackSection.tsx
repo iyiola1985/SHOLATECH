@@ -15,7 +15,7 @@ export default function LiveFeedbackSection() {
         <div className="text-center">
           <p className="type-badge text-amber-400">From people we&apos;ve worked with</p>
           <h2 className="type-section-title mt-3 text-white">What our clients say</h2>
-          <p className="type-subtitle mt-4 mx-auto max-w-2xl text-slate-300">Reviews from past clients — so you can see what it&apos;s like to work with us before you get in touch.</p>
+          <p className="type-hero-subtitle mt-4 mx-auto max-w-2xl text-slate-300">Reviews from past clients — so you can see what it&apos;s like to work with us before you get in touch.</p>
         </div>
         <div className="mt-12">
           {loading ? (
