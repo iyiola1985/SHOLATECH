@@ -27,6 +27,11 @@ export type SendMailOptions = {
   text: string;
   html?: string;
   replyTo?: string;
+  attachments?: {
+    filename: string;
+    content: Buffer;
+    contentType?: string;
+  }[];
 };
 
 export async function sendMail(options: SendMailOptions): Promise<void> {
@@ -38,5 +43,6 @@ export async function sendMail(options: SendMailOptions): Promise<void> {
     text: options.text,
     html: options.html,
     replyTo: options.replyTo,
+    attachments: options.attachments,
   });
 }

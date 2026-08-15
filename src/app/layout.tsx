@@ -20,18 +20,20 @@ const oswald = Oswald({
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} | ${siteConfig.tagline} — Web, Design & E-commerce`,
+    default: `${siteConfig.name} | ${siteConfig.tagline} — Web, Design & Social`,
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "Professional digital agency offering website development, UI/UX design, e-commerce, event booking sites, and graphic design. Book your project today.",
+    "SholaTech builds websites, UI/UX design, social media management, e-commerce, and digital products. Book a project or join our team.",
   keywords: [
     "website development",
     "UI/UX design",
+    "social media management",
     "e-commerce",
     "graphic design",
     "DJ booking website",
-    "digital agency",
+    "tech startup",
+    "SholaTech careers",
   ],
   openGraph: {
     type: "website",

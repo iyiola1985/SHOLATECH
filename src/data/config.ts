@@ -20,6 +20,8 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
+  { href: "/team", label: "Team" },
+  { href: "/careers", label: "Careers" },
   { href: "/booking", label: "Book a Project" },
   { href: "/contact", label: "Contact" },
   { href: "/feedback", label: "Client reviews" },
@@ -105,6 +107,63 @@ export const services = [
       "Style guides",
     ],
     startingPrice: "From $45",
+  },
+  {
+    id: "social-media",
+    title: "Social Media Management",
+    shortDesc: "Strategy, content, and growth for your brand online.",
+    icon: "📱",
+    description:
+      "We plan, create, and manage social content that builds audience and drives engagement — from Instagram and TikTok to LinkedIn and Facebook.",
+    benefits: [
+      "Content strategy & calendars",
+      "Post design & copywriting",
+      "Community management",
+      "Paid social support",
+      "Monthly performance reports",
+    ],
+    startingPrice: "From $80 / month",
+  },
+];
+
+export const teamMembers = [
+  {
+    id: "perpetua",
+    name: "Perpetua",
+    title: "Head of UI Design",
+    department: "Design",
+    image: "/team/perpetua.png",
+    bio: "Leads product and UI design at SholaTech — crafting clean, conversion-focused interfaces and design systems for web and digital products.",
+  },
+];
+
+export const careerRoles = [
+  {
+    id: "ui-ux-designer",
+    title: "UI/UX Designer",
+    department: "Design",
+    type: "Full-time",
+    location: "Remote / Nairobi",
+    description:
+      "Design user interfaces and experiences for client websites and products. Work closely with our Head of UI Design on wireframes, high-fidelity UI, and design handoff.",
+  },
+  {
+    id: "social-media-manager",
+    title: "Social Media Manager",
+    department: "Marketing",
+    type: "Full-time",
+    location: "Remote / Nairobi",
+    description:
+      "Own content calendars, community engagement, and growth across Instagram, TikTok, and LinkedIn for SholaTech clients and our own brand.",
+  },
+  {
+    id: "junior-frontend-developer",
+    title: "Junior Frontend Developer",
+    department: "Engineering",
+    type: "Internship / Full-time",
+    location: "Remote / Nairobi",
+    description:
+      "Build responsive UI with React and Next.js. Collaborate with designers and ship polished pages for client projects under mentorship.",
   },
 ];
 
