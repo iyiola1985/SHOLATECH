@@ -11,12 +11,12 @@ export default function ScrollScrubHero() {
   const targetProgress = useRef(0);
   const smoothProgress = useRef(0);
   const rafRef = useRef<number | null>(null);
+  const seekingRef = useRef(false);
   const [runwayVh, setRunwayVh] = useState(400);
 
   useEffect(() => {
     const updateRunway = () => {
-      // Shorter scrub distance on small screens so it doesn’t feel endless
-      setRunwayVh(window.innerWidth < 768 ? 280 : 400);
+      setRunwayVh(window.innerWidth < 768 ? 260 : 360);
     };
     updateRunway();
     window.addEventListener("resize", updateRunway);
@@ -27,6 +27,11 @@ export default function ScrollScrubHero() {
     const section = sectionRef.current;
     const video = videoRef.current;
     if (!section || !video) return;
+
+    // Smooth CSS scroll fights scroll-linked scrubbing
+    const html = document.documentElement;
+    const prevScrollBehavior = html.style.scrollBehavior;
+    html.style.scrollBehavior = "auto";
 
     video.pause();
     video.muted = true;
@@ -44,14 +49,30 @@ export default function ScrollScrubHero() {
       targetProgress.current = Math.min(1, Math.max(0, scrolled / total));
     };
 
+    const onSeeking = () => {
+      seekingRef.current = true;
+    };
+    const onSeeked = () => {
+      seekingRef.current = false;
+    };
+
     const tick = () => {
-      // Slightly snappier on touch devices
-      const ease = window.matchMedia("(pointer: coarse)").matches ? 0.18 : 0.12;
-      smoothProgress.current += (targetProgress.current - smoothProgress.current) * ease;
+      const ease = window.matchMedia("(pointer: coarse)").matches ? 0.28 : 0.22;
+      smoothProgress.current +=
+        (targetProgress.current - smoothProgress.current) * ease;
+
+      // Snap when very close so it doesn't crawl at the end
+      if (Math.abs(targetProgress.current - smoothProgress.current) < 0.001) {
+        smoothProgress.current = targetProgress.current;
+      }
 
       if (video.duration && Number.isFinite(video.duration)) {
-        const t = smoothProgress.current * video.duration;
-        if (Math.abs(video.currentTime - t) > 0.025) {
+        const t = Math.min(
+          video.duration - 0.04,
+          Math.max(0, smoothProgress.current * video.duration)
+        );
+        // Don't queue seeks — wait until the previous seek finishes
+        if (!seekingRef.current && Math.abs(video.currentTime - t) > 0.03) {
           try {
             video.currentTime = t;
           } catch {
@@ -68,17 +89,23 @@ export default function ScrollScrubHero() {
 
     const onLoaded = () => {
       updateTarget();
+      seekingRef.current = false;
       video.currentTime = 0;
     };
 
     video.addEventListener("loadedmetadata", onLoaded);
+    video.addEventListener("seeking", onSeeking);
+    video.addEventListener("seeked", onSeeked);
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
     updateTarget();
     rafRef.current = requestAnimationFrame(tick);
 
     return () => {
+      html.style.scrollBehavior = prevScrollBehavior;
       video.removeEventListener("loadedmetadata", onLoaded);
+      video.removeEventListener("seeking", onSeeking);
+      video.removeEventListener("seeked", onSeeked);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
