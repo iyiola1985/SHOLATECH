@@ -16,7 +16,7 @@ export default function Home() {
             <span className="text-amber-400 transition-all duration-300 group-hover/hero:text-amber-300 group-hover/hero:drop-shadow-[0_0_20px_rgba(245,158,11,0.4)]">Convert</span>
           </h1>
           <p className="type-hero-subtitle mt-6 max-w-2xl mx-auto text-slate-300/95 transition-colors duration-300 group-hover/hero:text-slate-200">
-            Website development, UI/UX design, social media, e-commerce, event booking sites,
+            Website development, UI/UX design, 3D websites, social media, e-commerce, event booking sites,
             and graphic design. One team for your entire digital presence.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">

@@ -124,6 +124,22 @@ export const services = [
     ],
     startingPrice: "From $80 / month",
   },
+  {
+    id: "3d-websites",
+    title: "3D Websites",
+    shortDesc: "Immersive 3D web experiences that stand out and convert.",
+    icon: "🧊",
+    description:
+      "Yes — we build 3D websites. Immersive product showcases, interactive landing pages, and scroll-driven 3D scenes that make your brand unforgettable on the web.",
+    benefits: [
+      "Custom 3D scenes & product visuals",
+      "Interactive scroll & hover experiences",
+      "Fast, optimized WebGL performance",
+      "Brand storytelling in 3D",
+      "Mobile-friendly immersive layouts",
+    ],
+    startingPrice: "From $500+",
+  },
 ];
 
 export const teamMembers = [
@@ -296,6 +312,24 @@ export const portfolioItems = [
       "Premium 35-day broiler chickens — farm-to-business supply for restaurants, vendors, and resellers with WhatsApp ordering and bulk supply details.",
     image: "/portfolio/bikundofarmfresh.png",
     demoUrl: "https://bikundofarmfresh.vercel.app/",
+  },
+  {
+    id: 14,
+    title: "SkyCookie",
+    category: "3D Website",
+    description:
+      "Immersive 3D cookie brand experience — floating typography, sky atmosphere, and interactive product storytelling on the web.",
+    image: "/portfolio/skycookie.jpg",
+    demoUrl: "https://testing-five-rosy-21.vercel.app/",
+  },
+  {
+    id: 15,
+    title: "SholaTech Networking — A.R.I.A",
+    category: "3D Website",
+    description:
+      "Interactive 3D agency experience featuring A.R.I.A, an animated AI character — studio storytelling, openings, and immersive brand presence.",
+    image: "/portfolio/sholatech-aria.jpg",
+    demoUrl: "https://animate1-omega.vercel.app/",
   },
 ];
 
