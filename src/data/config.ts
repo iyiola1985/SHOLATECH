@@ -301,8 +301,6 @@ export const portfolioItems = [
       "Clean luxury skincare — botanical formulas, product shop, philosophy storytelling, and a refined brand experience for cruelty-free, vegan skincare.",
     image: "/portfolio/velorabeauty.png",
     demoUrl: "https://beautycompany.vercel.app/",
-    imagePosition: "object-top",
-    featured: true,
   },
   {
     id: 13,
@@ -330,6 +328,8 @@ export const portfolioItems = [
       "Interactive 3D agency experience featuring A.R.I.A, an animated AI character — studio storytelling, openings, and immersive brand presence.",
     image: "/portfolio/sholatech-aria.jpg",
     demoUrl: "https://animate1-omega.vercel.app/",
+    imagePosition: "object-top",
+    featured: true,
   },
 ];
 
