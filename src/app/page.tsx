@@ -2,40 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/Button";
 import LiveFeedbackSection from "@/components/LiveFeedbackSection";
+import ScrollScrubHero from "@/components/ScrollScrubHero";
 import { portfolioItems } from "@/data/config";
 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="group/hero relative overflow-hidden bg-slate-900 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 transition-all duration-500 hover:bg-slate-800">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(245,158,11,0.15),transparent)] opacity-80 transition-opacity duration-500 group-hover/hero:opacity-100 group-hover/hero:bg-[radial-gradient(ellipse_90%_60%_at_50%_-10%,rgba(245,158,11,0.22),transparent)]" />
-        <div className="relative mx-auto max-w-4xl text-center transition-transform duration-300 group-hover/hero:scale-[1.01]">
-          <h1 className="type-hero text-white transition-colors duration-300 group-hover/hero:text-white">
-            We Build Digital Experiences That{" "}
-            <span className="text-amber-400 transition-all duration-300 group-hover/hero:text-amber-300 group-hover/hero:drop-shadow-[0_0_20px_rgba(245,158,11,0.4)]">Convert</span>
-          </h1>
-          <p className="type-hero-subtitle mt-6 max-w-2xl mx-auto text-slate-300/95 transition-colors duration-300 group-hover/hero:text-slate-200">
-            Website development, UI/UX design, 3D websites, social media, e-commerce, event booking sites,
-            and graphic design. One team for your entire digital presence.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Button
-              href="/booking"
-              className="min-w-[180px] px-8 py-4 text-base transition-transform duration-300 hover:scale-105 hover:shadow-lg"
-            >
-              Book a Project
-            </Button>
-            <Button
-              href="/services"
-              variant="outline"
-              className="min-w-[180px] border-white px-8 py-4 text-base text-white hover:bg-white hover:text-slate-900 transition-transform duration-300 hover:scale-105"
-            >
-              View Services
-            </Button>
-          </div>
-        </div>
-      </section>
+      <ScrollScrubHero />
 
       {/* Portfolio preview */}
       <section className="bg-slate-100 px-4 py-16 sm:px-6 sm:py-20 lg:px-8">

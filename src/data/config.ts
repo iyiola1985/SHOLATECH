@@ -3,7 +3,7 @@
 export const siteConfig = {
   name: "SholaTech",
   tagline: "NETWORKING",
-  logo: "/logo.jpg",
+  logo: "/logo.png",
   email: "iyiolaolusolatech@gmail.com",
   phone: "+254 700 130 036 · +234 806 193 6196",
   phoneTel: "254700130036",
