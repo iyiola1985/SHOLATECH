@@ -42,37 +42,34 @@ export default function ContactPage() {
   }
 
   return (
-    <>
-      <section className="group/hero relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 transition-all duration-500 hover:bg-slate-800">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-30%,rgba(245,158,11,0.15),transparent_50%)] opacity-80 transition-opacity duration-500 group-hover/hero:opacity-100" />
-        <div className="relative mx-auto max-w-4xl text-center transition-transform duration-300 group-hover/hero:scale-[1.01]">
-          <h1 className="type-page-hero text-white transition-colors duration-300 group-hover/hero:text-white">
-            Contact Us
-          </h1>
-          <p className="type-subtitle mt-6 mx-auto max-w-2xl text-slate-300 transition-colors duration-300 group-hover/hero:text-slate-200">
+    <div className="surface-page">
+      <section className="surface-hero">
+        <div className="mx-auto flex max-w-4xl flex-col items-center gap-5 text-center sm:gap-6">
+          <h1 className="type-page-hero text-white">Contact Us</h1>
+          <p className="type-page-lead text-white/90">
             Have a question or want to chat? We&apos;ll get back to you soon.
           </p>
         </div>
       </section>
 
-      <section className="bg-slate-50 px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <section className="surface-section pt-0">
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-10 lg:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-200/60 sm:p-10">
-              <h2 className="type-panel-title text-slate-900">Get in touch</h2>
-              <p className="type-subtitle mt-3 text-slate-600">
+            <div className="surface-panel p-8 sm:p-10">
+              <h2 className="type-panel-title text-white">Get in touch</h2>
+              <p className="type-subtitle mt-3 text-white/90">
                 Email or call us for a quick response. You can also send a message using the form.
               </p>
               <ul className="mt-8 space-y-5">
                 <li>
-                  <span className="type-badge text-slate-500">Email</span>
-                  <a href={`mailto:${siteConfig.email}`} className="mt-1.5 block text-lg text-slate-900 transition hover:text-amber-600 font-medium">
+                  <span className="type-badge text-amber-400">Email</span>
+                  <a href={`mailto:${siteConfig.email}`} className="mt-1.5 block text-lg font-medium text-white transition hover:text-amber-400">
                     {siteConfig.email}
                   </a>
                 </li>
                 <li>
-                  <span className="type-badge text-slate-500">Phone</span>
-                  <a href={`tel:${siteConfig.phoneTel}`} className="mt-1.5 block text-lg text-slate-900 transition hover:text-amber-600 font-medium">
+                  <span className="type-badge text-amber-400">Phone</span>
+                  <a href={`tel:${siteConfig.phoneTel}`} className="mt-1.5 block text-lg font-medium text-white transition hover:text-amber-400">
                     {siteConfig.phone}
                   </a>
                 </li>
@@ -96,7 +93,7 @@ export default function ContactPage() {
                 </div>
               )}
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-200/60 sm:p-10">
+            <div className="surface-panel p-8 sm:p-10">
               {submitted ? (
                 <div className="text-center py-8">
                   <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 mb-5">
@@ -104,29 +101,29 @@ export default function ContactPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p className="type-panel-title text-slate-900">Message sent</p>
-                  <p className="type-subtitle mt-3 text-slate-600">We&apos;ll reply as soon as we can.</p>
+                  <p className="type-panel-title text-white">Message sent</p>
+                  <p className="type-subtitle mt-3 text-white/85">We&apos;ll reply as soon as we can.</p>
                   <Link href="/" className="mt-6 inline-block text-base font-medium text-amber-600 hover:text-amber-700 transition">
                     Back to home
                   </Link>
                 </div>
               ) : (
                 <>
-                  <h2 className="type-panel-title text-slate-900">Send a message</h2>
-                  <p className="type-subtitle mt-2 text-slate-600">We&apos;ll get back to you shortly.</p>
+                  <h2 className="type-panel-title text-white">Send a message</h2>
+                  <p className="type-subtitle mt-2 text-white/85">We&apos;ll get back to you shortly.</p>
                   <form onSubmit={handleSubmit} className="mt-8 space-y-5">
                     <div className="grid gap-5 sm:grid-cols-2">
                       <div>
-                        <label htmlFor="contact-name" className="block text-sm font-semibold text-slate-700">Name *</label>
+                        <label htmlFor="contact-name" className="block text-sm font-semibold text-white/90">Name *</label>
                         <input id="contact-name" name="name" type="text" required className="mt-1.5 block w-full rounded-xl border border-slate-300 px-4 py-3 text-base shadow-sm focus:border-amber-500 focus:ring-1 focus:ring-amber-500" placeholder="Your name" />
                       </div>
                       <div>
-                        <label htmlFor="contact-email" className="block text-sm font-semibold text-slate-700">Email *</label>
+                        <label htmlFor="contact-email" className="block text-sm font-semibold text-white/90">Email *</label>
                         <input id="contact-email" name="email" type="email" required className="mt-1.5 block w-full rounded-xl border border-slate-300 px-4 py-3 text-base shadow-sm focus:border-amber-500 focus:ring-1 focus:ring-amber-500" placeholder="you@example.com" />
                       </div>
                     </div>
                     <div>
-                      <label htmlFor="contact-message" className="block text-sm font-semibold text-slate-700">Message *</label>
+                      <label htmlFor="contact-message" className="block text-sm font-semibold text-white/90">Message *</label>
                       <textarea id="contact-message" name="message" required rows={5} className="mt-1.5 block w-full rounded-xl border border-slate-300 px-4 py-3 text-base shadow-sm focus:border-amber-500 focus:ring-1 focus:ring-amber-500" placeholder="Your message..." />
                     </div>
                     {error && <p className="text-sm text-red-600" role="alert">{error}</p>}
@@ -140,6 +137,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

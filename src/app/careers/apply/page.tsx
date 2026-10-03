@@ -67,11 +67,11 @@ function ApplyForm() {
   }
 
   return (
-    <>
-      <section className="relative overflow-hidden bg-slate-900 px-4 py-16 sm:px-6 sm:py-20">
-        <div className="relative mx-auto max-w-4xl text-center">
+    <div className="surface-page">
+      <section className="surface-hero">
+        <div className="mx-auto max-w-4xl text-center">
           <h1 className="type-page-hero text-white">Apply</h1>
-          <p className="type-subtitle mt-4 text-slate-300">
+          <p className="type-subtitle mt-4 text-white/90">
             {matchedRole
               ? `Applying for ${matchedRole.title}`
               : "Tell us about yourself and the role you want."}
@@ -79,9 +79,9 @@ function ApplyForm() {
         </div>
       </section>
 
-      <section className="bg-slate-50 px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <section className="surface-section pt-0">
         <div className="mx-auto max-w-2xl">
-          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+          <div className="surface-panel p-8 sm:p-10">
             {submitted ? (
               <div className="py-8 text-center">
                 <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
@@ -89,8 +89,8 @@ function ApplyForm() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <p className="type-panel-title text-slate-900">Application received</p>
-                <p className="type-subtitle mt-3 text-slate-600">
+                <p className="type-panel-title text-white">Application received</p>
+                <p className="type-subtitle mt-3 text-white/85">
                   Thanks for applying. We&apos;ll review your application and get back to you.
                 </p>
                 <Link href="/careers" className="type-perk mt-6 inline-block text-amber-600 hover:text-amber-700">
@@ -100,7 +100,7 @@ function ApplyForm() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label htmlFor="name" className="type-badge text-slate-500">
+                  <label htmlFor="name" className="type-badge text-white/70">
                     Full name *
                   </label>
                   <input
@@ -111,7 +111,7 @@ function ApplyForm() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="type-badge text-slate-500">
+                  <label htmlFor="email" className="type-badge text-white/70">
                     Email *
                   </label>
                   <input
@@ -123,7 +123,7 @@ function ApplyForm() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="type-badge text-slate-500">
+                  <label htmlFor="phone" className="type-badge text-white/70">
                     Phone
                   </label>
                   <input
@@ -134,7 +134,7 @@ function ApplyForm() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="role" className="type-badge text-slate-500">
+                  <label htmlFor="role" className="type-badge text-white/70">
                     Role *
                   </label>
                   <select
@@ -155,7 +155,7 @@ function ApplyForm() {
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="portfolio" className="type-badge text-slate-500">
+                  <label htmlFor="portfolio" className="type-badge text-white/70">
                     Portfolio / LinkedIn URL
                   </label>
                   <input
@@ -167,7 +167,7 @@ function ApplyForm() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="cv" className="type-badge text-slate-500">
+                  <label htmlFor="cv" className="type-badge text-white/70">
                     CV / Resume * (PDF, DOC, DOCX — max 5 MB)
                   </label>
                   <input
@@ -180,7 +180,7 @@ function ApplyForm() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="coverNote" className="type-badge text-slate-500">
+                  <label htmlFor="coverNote" className="type-badge text-white/70">
                     Cover note *
                   </label>
                   <textarea
@@ -197,7 +197,7 @@ function ApplyForm() {
                   {loading ? "Sending…" : "Submit application"}
                 </Button>
                 <p className="text-center">
-                  <Link href="/careers" className="type-perk text-slate-500 hover:text-amber-600">
+                  <Link href="/careers" className="type-perk text-white/70 hover:text-amber-600">
                     ← Back to open roles
                   </Link>
                 </p>
@@ -206,7 +206,7 @@ function ApplyForm() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 
@@ -214,7 +214,7 @@ export default function CareersApplyPage() {
   return (
     <Suspense
       fallback={
-        <div className="flex min-h-[40vh] items-center justify-center bg-slate-50 text-slate-500">
+        <div className="flex min-h-[40vh] items-center justify-center text-white/90">
           Loading…
         </div>
       }

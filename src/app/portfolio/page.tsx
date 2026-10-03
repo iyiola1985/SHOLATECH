@@ -7,27 +7,27 @@ export default function PortfolioPage() {
   const rest = portfolioItems.filter((item) => !("featured" in item && item.featured));
 
   return (
-    <>
-      <section className="relative overflow-hidden bg-slate-900 px-4 py-16 sm:px-6 sm:py-20">
-        <div className="relative mx-auto max-w-4xl text-center">
+    <div className="surface-page">
+      <section className="surface-hero">
+        <div className="mx-auto max-w-4xl text-center">
           <h1 className="type-page-hero text-white">Our Work</h1>
-          <p className="type-subtitle mt-4 text-slate-300">
+          <p className="type-subtitle mt-4 text-white/90">
             A selection of projects we&apos;ve built — websites, e-commerce, and digital experiences.
           </p>
         </div>
       </section>
 
-      <section className="bg-slate-50 px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <section className="surface-section pt-0">
         <div className="mx-auto max-w-6xl">
           {featured && (
             <a
               href={featured.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mb-10 block overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:shadow-xl"
+              className="surface-card group mb-10"
             >
               <div className="grid lg:grid-cols-2">
-                <div className="relative aspect-[16/11] overflow-hidden bg-gradient-to-br from-[#F7EDE8] to-[#F3E4DC] lg:aspect-auto lg:min-h-[320px]">
+                <div className="relative aspect-[16/11] overflow-hidden bg-slate-800/60 lg:aspect-auto lg:min-h-[320px]">
                   <Image
                     src={featured.image}
                     alt={featured.title}
@@ -43,10 +43,12 @@ export default function PortfolioPage() {
                   />
                 </div>
                 <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-12">
-                  <span className="type-badge text-amber-600">{featured.category}</span>
-                  <h2 className="type-section-title mt-3 text-slate-900">{featured.title}</h2>
-                  <p className="type-subtitle mt-4 text-slate-600">{featured.description}</p>
-                  <span className="type-perk mt-6 inline-flex items-center gap-2 text-amber-600">
+                  <span className="type-badge text-amber-400">{featured.category}</span>
+                  <h2 className="type-section-title mt-3 text-white group-hover:text-amber-400 transition">
+                    {featured.title}
+                  </h2>
+                  <p className="type-subtitle mt-4 text-white/90">{featured.description}</p>
+                  <span className="type-perk mt-6 inline-flex items-center gap-2 text-amber-400">
                     Visit site
                     <svg className="h-4 w-4 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -64,12 +66,9 @@ export default function PortfolioPage() {
               const image = "image" in item ? item.image : null;
               const imagePosition =
                 "imagePosition" in item && item.imagePosition ? item.imagePosition : "object-center";
-              return (
-                <div
-                  key={item.id}
-                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg"
-                >
-                  <div className="relative aspect-video overflow-hidden bg-slate-200">
+              const cardInner = (
+                <>
+                  <div className="relative aspect-video overflow-hidden bg-slate-800/60">
                     {image ? (
                       <Image
                         src={image}
@@ -80,29 +79,42 @@ export default function PortfolioPage() {
                         unoptimized
                       />
                     ) : (
-                      <span className="flex h-full w-full items-center justify-center text-4xl font-display font-bold text-slate-400">
+                      <span className="flex h-full w-full items-center justify-center text-4xl font-display font-bold text-amber-400/80">
                         {item.title.charAt(0)}
                       </span>
                     )}
                   </div>
                   <div className="p-4">
-                    <span className="type-badge text-amber-600">{item.category}</span>
-                    <h2 className="type-card-title mt-1.5 text-slate-900">{item.title}</h2>
-                    <p className="type-subtitle mt-2 line-clamp-2 text-slate-600">{item.description}</p>
+                    <span className="type-badge text-amber-400">{item.category}</span>
+                    <h2 className="type-card-title mt-1.5 text-white transition group-hover:text-amber-400">
+                      {item.title}
+                    </h2>
+                    <p className="type-subtitle mt-2 line-clamp-2 text-white/90">{item.description}</p>
                     {isExternal && (
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="type-perk mt-3 inline-flex items-center gap-1.5 text-amber-600 hover:text-amber-700"
-                      >
+                      <span className="type-perk mt-3 inline-flex items-center gap-1.5 text-amber-400">
                         Visit site
                         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
-                      </a>
+                      </span>
                     )}
                   </div>
+                </>
+              );
+
+              return isExternal ? (
+                <a
+                  key={item.id}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="surface-card group"
+                >
+                  {cardInner}
+                </a>
+              ) : (
+                <div key={item.id} className="surface-card group">
+                  {cardInner}
                 </div>
               );
             })}
@@ -110,13 +122,13 @@ export default function PortfolioPage() {
           <div className="mt-12 text-center">
             <Link
               href="/contact"
-              className="font-display inline-flex items-center justify-center rounded-xl bg-amber-500 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-md hover:bg-amber-600"
+              className="font-display inline-flex items-center justify-center rounded-xl bg-amber-500 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-md transition hover:bg-amber-600 hover:scale-105"
             >
               Start your project
             </Link>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

@@ -19,7 +19,7 @@ const variants = {
   secondary:
     "bg-slate-800 text-white shadow-md hover:bg-slate-700 focus-visible:outline-slate-800",
   outline:
-    "border-2 border-slate-800 text-slate-800 hover:bg-slate-800 hover:text-white focus-visible:outline-slate-800",
+    "border-2 border-white text-white hover:bg-white hover:text-slate-900 focus-visible:outline-white",
 };
 
 export default function Button({

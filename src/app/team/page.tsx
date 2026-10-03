@@ -12,45 +12,44 @@ function LinkedInIcon({ className }: { className?: string }) {
 
 export default function TeamPage() {
   return (
-    <>
-      <section className="relative overflow-hidden bg-slate-900 px-4 py-16 sm:px-6 sm:py-20">
-        <div className="relative mx-auto max-w-4xl text-center">
+    <div className="surface-page">
+      <section className="surface-hero">
+        <div className="mx-auto max-w-4xl text-center">
           <h1 className="type-page-hero text-white">Our Team</h1>
-          <p className="type-subtitle mt-4 text-slate-300">
+          <p className="type-subtitle mt-4 text-white/90">
             The people building products, design, and digital growth at SholaTech.
           </p>
         </div>
       </section>
 
-      <section className="bg-slate-50 px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <section className="surface-section pt-0">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {teamMembers.map((member) => (
-              <article
-                key={member.id}
-                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md"
-              >
-                <div className="relative aspect-[4/5] bg-slate-200">
+              <article key={member.id} className="surface-card group">
+                <div className="relative aspect-[4/5] bg-slate-800/60">
                   <Image
                     src={member.image}
                     alt={`${member.name} — ${member.title}`}
                     fill
-                    className="object-cover object-top"
+                    className="object-cover object-top transition duration-300 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
                     unoptimized
                   />
                 </div>
                 <div className="p-5">
-                  <span className="type-badge text-amber-600">{member.department}</span>
-                  <h2 className="type-card-title mt-1.5 text-slate-900">{member.name}</h2>
-                  <p className="type-perk mt-1 text-amber-600">{member.title}</p>
-                  <p className="type-subtitle mt-3 text-slate-600">{member.bio}</p>
+                  <span className="type-badge text-amber-400">{member.department}</span>
+                  <h2 className="type-card-title mt-1.5 text-white transition group-hover:text-amber-400">
+                    {member.name}
+                  </h2>
+                  <p className="type-perk mt-1 text-amber-400">{member.title}</p>
+                  <p className="type-subtitle mt-3 text-white/90">{member.bio}</p>
                   {"linkedin" in member && member.linkedin && (
                     <a
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 transition hover:border-[#0A66C2] hover:bg-[#0A66C2]/5 hover:text-[#0A66C2]"
+                      className="mt-4 inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-3 py-2 text-sm font-medium text-white transition hover:border-[#0A66C2] hover:bg-[#0A66C2]/20 hover:text-white"
                       aria-label={`${member.name} on LinkedIn`}
                     >
                       <LinkedInIcon className="h-4 w-4" />
@@ -63,16 +62,16 @@ export default function TeamPage() {
           </div>
 
           <div className="mt-12 text-center">
-            <p className="type-subtitle text-slate-600">Want to join the team?</p>
+            <p className="type-subtitle text-white/90">Want to join the team?</p>
             <Link
               href="/careers"
-              className="font-display mt-4 inline-flex items-center justify-center rounded-xl bg-amber-500 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-md hover:bg-amber-600"
+              className="font-display mt-4 inline-flex items-center justify-center rounded-xl bg-amber-500 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-md transition hover:bg-amber-600 hover:scale-105"
             >
               View open roles
             </Link>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

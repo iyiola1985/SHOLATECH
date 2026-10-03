@@ -1,39 +1,17 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { Cormorant_Garamond } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import NavSpacer from "@/components/NavSpacer";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import ScrollScrubBackground from "@/components/ScrollScrubBackground";
 import { siteConfig } from "@/data/config";
 
-const helveticaLight = localFont({
-  src: "../fonts/Helvetica-Light.ttf",
-  variable: "--font-helvetica-light",
-  weight: "300",
-  display: "swap",
-});
-
-const helvetica = localFont({
-  src: "../fonts/Helvetica.ttf",
-  variable: "--font-helvetica",
-  weight: "400",
-  display: "swap",
-});
-
-const helveticaBold = localFont({
-  src: "../fonts/Helvetica-Bold.ttf",
-  variable: "--font-helvetica-bold",
-  weight: "700",
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
+const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  variable: "--font-poppins",
   display: "swap",
 });
 
@@ -65,15 +43,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${helveticaLight.variable} ${helvetica.variable} ${helveticaBold.variable} ${cormorant.variable}`}
-    >
-      <body className="min-h-screen bg-white font-sans text-base text-slate-800 antialiased">
+    <html lang="en" className={poppins.variable}>
+      <body className="min-h-screen bg-slate-900 font-sans text-base text-white antialiased">
         <GoogleAnalytics />
+        <ScrollScrubBackground />
         <Navbar />
         <NavSpacer />
-        <main className="min-h-screen">{children}</main>
+        <main className="relative z-10 min-h-screen bg-transparent text-white">{children}</main>
         <Footer />
       </body>
     </html>

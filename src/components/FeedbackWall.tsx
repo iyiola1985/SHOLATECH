@@ -36,12 +36,12 @@ function typeColor(type: string): string {
   if (t.includes("e-commerce") || t.includes("ecommerce")) return "bg-emerald-500/15 text-emerald-700 border-emerald-200";
   if (t.includes("event") || t.includes("dj")) return "bg-amber-500/15 text-amber-700 border-amber-200";
   if (t.includes("graphic")) return "bg-rose-500/15 text-rose-700 border-rose-200";
-  return "bg-slate-500/10 text-slate-600 border-slate-200";
+  return "bg-slate-500/10 text-white/85 border-slate-200";
 }
 
 export default function FeedbackWall({ feed, compact = false, variant = "light" }: { feed: FeedbackEntry[]; compact?: boolean; variant?: "light" | "dark" }) {
   if (!feed.length) {
-    return <p className={`text-center py-8 ${variant === "dark" ? "text-slate-400" : "text-slate-500"}`}>No client reviews yet.</p>;
+    return <p className={`text-center py-8 ${variant === "dark" ? "text-white/75" : "text-white/70"}`}>No client reviews yet.</p>;
   }
   const cardClass = variant === "dark"
     ? "group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-800/80 p-5 shadow-lg transition-all duration-300 hover:shadow-xl hover:border-amber-500/30 hover:-translate-y-0.5"
@@ -53,14 +53,14 @@ export default function FeedbackWall({ feed, compact = false, variant = "light" 
           <div className="absolute right-3 top-3 opacity-20 group-hover:opacity-40 transition-opacity">
             <svg className="h-8 w-8 text-amber-500" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
           </div>
-          <p className={`leading-relaxed pr-10 min-h-[3rem] ${variant === "dark" ? "text-slate-200" : "text-slate-700"}`}>&ldquo;{item.message}&rdquo;</p>
+          <p className={`leading-relaxed pr-10 min-h-[3rem] ${variant === "dark" ? "text-white" : "text-white/90"}`}>&ldquo;{item.message}&rdquo;</p>
           <div className="mt-4 flex flex-wrap items-center gap-2">
             <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-amber-600 text-xs font-bold text-white shadow">{getInitials(item.name)}</div>
             <div className="min-w-0 flex-1">
-              <cite className={`font-semibold not-italic block truncate ${variant === "dark" ? "text-white" : "text-slate-900"}`}>{item.name}</cite>
+              <cite className={`font-semibold not-italic block truncate ${variant === "dark" ? "text-white" : "text-white"}`}>{item.name}</cite>
               <div className="flex flex-wrap items-center gap-2 mt-0.5">
                 <span className={`inline-block rounded-full border px-2 py-0.5 text-xs font-medium ${typeColor(item.type)}`}>{item.type}</span>
-                <span className={`text-xs ${variant === "dark" ? "text-slate-500" : "text-slate-400"}`}>{formatDate(item.createdAt)}</span>
+                <span className={`text-xs ${variant === "dark" ? "text-white/70" : "text-white/75"}`}>{formatDate(item.createdAt)}</span>
               </div>
             </div>
           </div>

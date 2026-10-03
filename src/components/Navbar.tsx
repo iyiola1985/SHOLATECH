@@ -12,7 +12,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const lastY = useRef(0);
   const pathname = usePathname();
-  const onHome = pathname === "/";
   const openRef = useRef(open);
   openRef.current = open;
 
@@ -30,20 +29,12 @@ export default function Navbar() {
 
       setScrolled(y > 24);
 
-      if (!onHome) {
-        setHidden(false);
-        lastY.current = y;
-        return;
-      }
-
-      // Keep nav visible while the mobile menu is open
       if (openRef.current) {
         setHidden(false);
         lastY.current = y;
         return;
       }
 
-      // Always show near the top
       if (y < 40) {
         setHidden(false);
       } else if (delta > 8) {
@@ -59,9 +50,8 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, [onHome]);
+  }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -71,7 +61,8 @@ export default function Navbar() {
     };
   }, [open]);
 
-  const useLightNav = onHome && !scrolled && !open;
+  // Light transparent nav over the shared scroll background on every page
+  const useLightNav = !scrolled && !open;
   const navLinkClass = useLightNav
     ? "font-display text-[11px] font-bold uppercase tracking-[0.14em] text-white/90 transition hover:text-amber-400 sm:text-xs"
     : "font-display text-[11px] font-bold uppercase tracking-[0.14em] text-slate-800 transition hover:text-amber-600 sm:text-xs";

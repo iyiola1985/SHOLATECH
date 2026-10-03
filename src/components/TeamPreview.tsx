@@ -7,8 +7,8 @@ export default function TeamPreview() {
     <section className="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
-          <h2 className="type-section-title text-slate-900">Our Team</h2>
-          <p className="type-subtitle mt-3 text-slate-600">
+          <h2 className="type-section-title text-white">Our Team</h2>
+          <p className="type-subtitle mt-3 text-white/85">
             Meet the people behind SholaTech design and delivery.
           </p>
         </div>
@@ -32,7 +32,7 @@ export default function TeamPreview() {
               </div>
               <div className="p-4">
                 <span className="type-badge text-amber-600">{member.department}</span>
-                <h3 className="type-card-title mt-1.5 text-slate-900">{member.name}</h3>
+                <h3 className="type-card-title mt-1.5 text-white">{member.name}</h3>
                 <p className="type-perk mt-1 text-amber-600">{member.title}</p>
               </div>
             </Link>

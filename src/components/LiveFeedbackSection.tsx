@@ -15,7 +15,7 @@ export default function LiveFeedbackSection() {
         <div className="text-center">
           <p className="type-badge text-amber-400">From people we&apos;ve worked with</p>
           <h2 className="type-section-title mt-3 text-white">What our clients say</h2>
-          <p className="type-hero-subtitle mt-4 mx-auto max-w-2xl text-slate-300">Reviews from past clients — so you can see what it&apos;s like to work with us before you get in touch.</p>
+          <p className="type-hero-subtitle mt-4 mx-auto max-w-2xl text-white/90">Reviews from past clients — so you can see what it&apos;s like to work with us before you get in touch.</p>
         </div>
         <div className="mt-12">
           {loading ? (
@@ -24,8 +24,8 @@ export default function LiveFeedbackSection() {
             </div>
           ) : feed.length === 0 ? (
             <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-12 text-center">
-              <p className="text-slate-400">No client reviews yet. Check back soon.</p>
-              <p className="mt-2 text-sm text-slate-500">Past client? You can leave a review on our Add review page.</p>
+              <p className="text-white/75">No client reviews yet. Check back soon.</p>
+              <p className="mt-2 text-sm text-white/70">Past client? You can leave a review on our Add review page.</p>
               <Button href="/feedback" className="mt-4">Add review</Button>
             </div>
           ) : (
@@ -34,7 +34,7 @@ export default function LiveFeedbackSection() {
                 <FeedbackWall feed={feed.slice(0, 6)} compact variant="dark" />
               </div>
               <div className="mt-8 text-center">
-                <p className="text-sm text-slate-400 mb-2">Past client? Leave your review.</p>
+                <p className="text-sm text-white/75 mb-2">Past client? Leave your review.</p>
                 <Link href="/feedback" className="font-display inline-flex items-center gap-2 rounded-full border border-amber-500/50 bg-amber-500/10 px-6 py-3 text-xs font-bold uppercase tracking-wide text-amber-300 transition hover:bg-amber-500/20">
                   Leave a review
                   <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
