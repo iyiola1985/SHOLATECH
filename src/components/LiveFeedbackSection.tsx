@@ -8,7 +8,7 @@ export default function LiveFeedbackSection() {
   const { feed, loading } = useFeedbackFeed();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+    <section className="relative overflow-hidden bg-slate-950/50 px-4 py-20 backdrop-blur-md sm:px-6 sm:py-24 lg:px-8">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(245,158,11,0.12),transparent_50%)]" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
       <div className="relative mx-auto max-w-6xl">

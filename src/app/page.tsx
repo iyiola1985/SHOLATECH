@@ -7,11 +7,11 @@ import { portfolioItems } from "@/data/config";
 
 export default function Home() {
   return (
-    <>
+    <div className="relative bg-transparent">
       <ScrollScrubHero />
 
-      {/* Portfolio preview */}
-      <section className="bg-slate-100 px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      {/* Portfolio preview — translucent so scroll animation stays visible */}
+      <section className="relative z-10 bg-white/80 px-4 py-16 backdrop-blur-md sm:px-6 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <h2 className="type-section-title text-slate-900">
@@ -68,7 +68,7 @@ export default function Home() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block overflow-hidden rounded-2xl bg-slate-100/80 shadow-sm transition-all duration-300 hover:shadow-xl hover:bg-slate-100 hover:scale-[1.02]"
+                  className="group block overflow-hidden rounded-2xl bg-white/90 shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-[1.02]"
                 >
                   {content}
                 </a>
@@ -76,7 +76,7 @@ export default function Home() {
                 <Link
                   key={item.id}
                   href={href}
-                  className="group block overflow-hidden rounded-2xl bg-slate-100/80 shadow-sm transition-all duration-300 hover:shadow-xl hover:bg-slate-100 hover:scale-[1.02]"
+                  className="group block overflow-hidden rounded-2xl bg-white/90 shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-[1.02]"
                 >
                   {content}
                 </Link>
@@ -91,11 +91,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Client reviews — from past clients, for new visitors */}
-      <LiveFeedbackSection />
+      {/* Client reviews */}
+      <div className="relative z-10">
+        <LiveFeedbackSection />
+      </div>
 
       {/* Contact CTA */}
-      <section className="bg-slate-900 px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <section className="relative z-10 bg-slate-950/55 px-4 py-16 backdrop-blur-md sm:px-6 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="type-section-title text-white">
             Ready to Start Your Project?
@@ -120,6 +122,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
