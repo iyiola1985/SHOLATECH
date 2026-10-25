@@ -5,10 +5,11 @@ import Image from "next/image";
 import Button from "@/components/Button";
 import { portfolioItems } from "@/data/config";
 
+// Vela, Crispy Barbers, SkyCookie
 const WORK_PREVIEW = portfolioItems
-  .filter((item) => [3, 4, 2].includes(item.id))
+  .filter((item) => [16, 17, 14].includes(item.id))
   .sort(
-    (a, b) => [3, 4, 2].indexOf(a.id) - [3, 4, 2].indexOf(b.id)
+    (a, b) => [16, 17, 14].indexOf(a.id) - [16, 17, 14].indexOf(b.id)
   );
 
 export default function ScrollScrubHero() {
@@ -61,10 +62,23 @@ export default function ScrollScrubHero() {
             {WORK_PREVIEW.map((item) => {
               const href = item.demoUrl || "/portfolio";
               const isExternal = href.startsWith("http");
+              const video = "video" in item && item.video ? item.video : null;
               const content = (
                 <>
-                  <div className="relative aspect-video overflow-hidden bg-slate-800/60">
-                    {"image" in item && item.image ? (
+                  <div className="relative aspect-video overflow-hidden bg-slate-950">
+                    {video ? (
+                      <video
+                        className="absolute inset-0 h-full w-full object-contain"
+                        src={video}
+                        poster={item.image}
+                        muted
+                        playsInline
+                        loop
+                        autoPlay
+                        preload="metadata"
+                        aria-hidden
+                      />
+                    ) : "image" in item && item.image ? (
                       <Image
                         src={item.image}
                         alt={item.title}

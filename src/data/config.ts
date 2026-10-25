@@ -4,10 +4,19 @@ export const siteConfig = {
   name: "SholaTech",
   tagline: "NETWORKING",
   logo: "/logo.png",
+  /** Canonical site URL — used for sitemap, JSON-LD, and Open Graph */
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.sholatech.com",
   email: "iyiolaolusolatech@gmail.com",
   phone: "+254 700 130 036 · +234 806 193 6196",
   phoneTel: "254700130036",
   whatsapp: "234700130036",
+  /**
+   * Google Business Profile links — stars in Google Search/Maps come from here,
+   * not from reviews hosted only on this website.
+   * Paste your public GBP URL and “Write a review” link when ready.
+   */
+  googleBusinessUrl: process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_URL || "",
+  googleReviewUrl: process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL || "",
   social: {
     twitter: "https://twitter.com/sholatech",
     instagram: "https://instagram.com/sholatech",
@@ -227,8 +236,11 @@ export const portfolioItems = [
     category: "Event / Booking",
     description:
       "DJ landing page — music, videos, booking via WhatsApp, unmatched vibe and energy.",
-    image: "/portfolio/dj03.png",
+    image: "/portfolio/dj03.jpg",
+    video: "/portfolio/dj03-preview.mp4",
     demoUrl: "https://dj-03.vercel.app",
+    featured: true,
+    featuredOrder: 2,
   },
   {
     id: 5,
@@ -271,8 +283,9 @@ export const portfolioItems = [
     title: "VIBELORD",
     category: "Event / MC",
     description:
-      "Coming-soon landing page for a professional hype man and MC — cinematic dark aesthetic, typewriter hero, and launch teaser.",
-    image: "/portfolio/vibelord.png",
+      "Cinematic MC & hype-man site — dark stage energy, bold hero storytelling, and a voice built for clubs, festivals, and brand stages.",
+    image: "/portfolio/vibelord.jpg",
+    video: "/portfolio/vibelord-preview.mp4",
     demoUrl: "https://www.iamvibelord.com/",
   },
   {
@@ -321,6 +334,32 @@ export const portfolioItems = [
     demoUrl: "https://testing-five-rosy-21.vercel.app/",
   },
   {
+    id: 16,
+    title: "Vela — Private Residences",
+    category: "Immersive Real Estate",
+    description:
+      "A cinematic private-residence experience for luxury architecture — scroll-driven chapters like The Arrival, The Living Room, and The Garden Suite. Built as a quiet, high-end walkthrough with editorial typography, full-bleed photography, and an inquire flow designed for discreet buyers. Every room opens toward the planted court: concrete, timber, and glass told as a story, not a listing.",
+    longDescription:
+      "Vela is a premium real-estate web experience for a single-level private residence. Visitors move through sequenced spaces with cinematic transitions, project specs (arrangement, rooms, private sale), and a gallery that feels like a studio portfolio. Ideal for architects, developers, and brokers who need more than a brochure — a brand-led digital tour that converts quiet interest into inquiries.",
+    image: "/portfolio/vela.jpg",
+    video: "/portfolio/vela-preview.mp4",
+    demoUrl: "https://realestate-pi-dun.vercel.app/",
+    featured: true,
+    featuredOrder: 1,
+  },
+  {
+    id: 17,
+    title: "Crispy Barbers Lounge",
+    category: "Beauty / Booking",
+    description:
+      "Luxury barbershop site — sharp cuts, clean fades, dual-location booking, and a cinematic brand experience built for precision grooming.",
+    image: "/portfolio/crispy-barbers.jpg",
+    video: "/portfolio/crispy-barbers-preview.mp4",
+    demoUrl: "https://barbing-peach.vercel.app/",
+    featured: true,
+    featuredOrder: 3,
+  },
+  {
     id: 15,
     title: "SholaTech Networking — A.R.I.A",
     category: "3D Website",
@@ -329,7 +368,45 @@ export const portfolioItems = [
     image: "/portfolio/sholatech-aria.jpg",
     demoUrl: "https://animate1-omega.vercel.app/",
     imagePosition: "object-top",
-    featured: true,
+  },
+];
+
+/** Brands we've worked with — white mono logos for the clients panel */
+export const clientLogos = [
+  {
+    id: "lapace",
+    name: "Lapace Integrated Services and Investment Ltd",
+    shortName: "Lapace",
+    logo: "/clients/lapace-mono.png",
+    href: "",
+  },
+  {
+    id: "keimmy",
+    name: "Keimmy Caters",
+    shortName: "Keimmy Caters",
+    logo: "/clients/keimmy-mono.png",
+    href: "",
+  },
+  {
+    id: "bikundo",
+    name: "Bikundo Farm Fresh",
+    shortName: "Bikundo Farm Fresh",
+    logo: "/clients/bikundo-mono.png",
+    href: "https://bikundofarmfresh.vercel.app/",
+  },
+  {
+    id: "animate-farm",
+    name: "Animate Farm Ltd",
+    shortName: "Animate Farm",
+    logo: "/clients/animate-farm-mono.png",
+    href: "",
+  },
+  {
+    id: "djo3",
+    name: "DJO3 Entertainment",
+    shortName: "DJO3 Entertainment",
+    logo: "/clients/djo3-mono.png",
+    href: "https://dj-03.vercel.app",
   },
 ];
 

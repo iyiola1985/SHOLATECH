@@ -5,7 +5,14 @@ import Link from "next/link";
 
 const ADMIN_KEY = "sholatech_admin_secret";
 
-type Review = { id: string; name: string; type: string; message: string; createdAt: string };
+type Review = {
+  id: string;
+  name: string;
+  type: string;
+  message: string;
+  rating?: number;
+  createdAt: string;
+};
 
 function formatDate(iso: string): string {
   try {
@@ -130,7 +137,10 @@ export default function AdminReviewsPage() {
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="min-w-0 flex-1">
                     <p className="font-semibold text-slate-900">{r.name}</p>
-                    <p className="mt-1 text-sm text-slate-500">{r.type}</p>
+                    <p className="mt-1 text-sm text-slate-500">
+                      {r.type}
+                      {typeof r.rating === "number" ? ` · ${r.rating}/5` : ""}
+                    </p>
                     <p className="mt-2 text-slate-700">&ldquo;{r.message}&rdquo;</p>
                     <p className="mt-2 text-xs text-slate-400">{formatDate(r.createdAt)}</p>
                   </div>

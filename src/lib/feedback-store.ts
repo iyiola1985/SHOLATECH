@@ -7,6 +7,8 @@ export type FeedbackItem = {
   name: string;
   type: string;
   message: string;
+  /** 1–5 star rating from the client (optional for older reviews) */
+  rating?: number;
   createdAt: string;
 };
 

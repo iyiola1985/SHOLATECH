@@ -7,6 +7,7 @@ type FeedbackBody = {
   email: string;
   type?: string;
   message: string;
+  rating?: number;
 };
 
 function escapeHtml(s: string): string {
@@ -32,17 +33,27 @@ export async function POST(request: Request) {
       );
     }
     const body = (await request.json()) as FeedbackBody;
-    const { name, email, type, message } = body;
+    const { name, email, type, message, rating } = body;
     if (!name?.trim() || !email?.trim() || !message?.trim()) {
       return NextResponse.json({ error: "Name, email, and message are required." }, { status: 400 });
     }
+    const ratingNum = Number(rating);
+    if (!Number.isFinite(ratingNum) || ratingNum < 1 || ratingNum > 5) {
+      return NextResponse.json({ error: "Please choose a rating from 1 to 5 stars." }, { status: 400 });
+    }
+    const ratingVal = Math.round(ratingNum);
     const typeVal = (type && String(type).trim()) || "Other";
-    await addFeedback({ name: name.trim(), type: typeVal, message: message.trim() });
-    const text = `Name: ${name}\nEmail: ${email}\nType: ${typeVal}\n\nMessage:\n${message}`;
-    const html = `<p><strong>Name:</strong> ${escapeHtml(name)}</p><p><strong>Email:</strong> ${escapeHtml(email)}</p><p><strong>Type:</strong> ${escapeHtml(typeVal)}</p><p><strong>Message:</strong></p><p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>`;
+    await addFeedback({
+      name: name.trim(),
+      type: typeVal,
+      message: message.trim(),
+      rating: ratingVal,
+    });
+    const text = `Name: ${name}\nEmail: ${email}\nType: ${typeVal}\nRating: ${ratingVal}/5\n\nMessage:\n${message}`;
+    const html = `<p><strong>Name:</strong> ${escapeHtml(name)}</p><p><strong>Email:</strong> ${escapeHtml(email)}</p><p><strong>Type:</strong> ${escapeHtml(typeVal)}</p><p><strong>Rating:</strong> ${ratingVal}/5</p><p><strong>Message:</strong></p><p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>`;
     await sendMail({
       to: NOTIFY_EMAIL,
-      subject: `[SholaTech] Client review from ${name.trim()} (${typeVal})`,
+      subject: `[SholaTech] Client review from ${name.trim()} (${ratingVal}/5 · ${typeVal})`,
       text,
       html,
       replyTo: email.trim(),

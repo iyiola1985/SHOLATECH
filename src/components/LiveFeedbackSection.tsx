@@ -1,11 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import FeedbackWall, { useFeedbackFeed } from "@/components/FeedbackWall";
+import FeedbackWall, {
+  useFeedbackFeed,
+  type FeedbackEntry,
+} from "@/components/FeedbackWall";
 import Button from "@/components/Button";
+import GoogleReviewCta from "@/components/GoogleReviewCta";
 
-export default function LiveFeedbackSection() {
-  const { feed, loading } = useFeedbackFeed();
+export default function LiveFeedbackSection({
+  initialFeed,
+}: {
+  initialFeed?: FeedbackEntry[];
+}) {
+  const { feed, loading } = useFeedbackFeed("/api/feedback", initialFeed);
 
   return (
     <section className="relative overflow-hidden bg-slate-950/50 px-4 py-20 backdrop-blur-md sm:px-6 sm:py-24 lg:px-8">
@@ -15,30 +23,53 @@ export default function LiveFeedbackSection() {
         <div className="text-center">
           <p className="type-badge text-amber-400">From people we&apos;ve worked with</p>
           <h2 className="type-section-title mt-3 text-white">What our clients say</h2>
-          <p className="type-hero-subtitle mt-4 mx-auto max-w-2xl text-white/90">Reviews from past clients — so you can see what it&apos;s like to work with us before you get in touch.</p>
+          <p className="type-hero-subtitle mt-4 mx-auto max-w-2xl text-white/90">
+            Reviews from past clients — so you can see what it&apos;s like to work with us
+            before you get in touch.
+          </p>
         </div>
         <div className="mt-12">
           {loading ? (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {[1, 2, 3].map((i) => <div key={i} className="h-44 rounded-2xl bg-white/5 animate-pulse" />)}
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="h-44 animate-pulse rounded-2xl bg-white/5" />
+              ))}
             </div>
           ) : feed.length === 0 ? (
             <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-12 text-center">
               <p className="text-white/75">No client reviews yet. Check back soon.</p>
-              <p className="mt-2 text-sm text-white/70">Past client? You can leave a review on our Add review page.</p>
-              <Button href="/feedback" className="mt-4">Add review</Button>
+              <p className="mt-2 text-sm text-white/70">
+                Past client? You can leave a review on our Add review page.
+              </p>
+              <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+                <Button href="/feedback">Add review</Button>
+                <GoogleReviewCta />
+              </div>
             </div>
           ) : (
             <>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-sm">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
                 <FeedbackWall feed={feed.slice(0, 6)} compact variant="dark" />
               </div>
               <div className="mt-8 text-center">
-                <p className="text-sm text-white/75 mb-2">Past client? Leave your review.</p>
-                <Link href="/feedback" className="font-display inline-flex items-center gap-2 rounded-full border border-amber-500/50 bg-amber-500/10 px-6 py-3 text-xs font-bold uppercase tracking-wide text-amber-300 transition hover:bg-amber-500/20">
-                  Leave a review
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                </Link>
+                <p className="mb-3 text-sm text-white/75">Past client? Leave your review.</p>
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <Link
+                    href="/feedback"
+                    className="font-display inline-flex items-center gap-2 rounded-full border border-amber-500/50 bg-amber-500/10 px-6 py-3 text-xs font-bold uppercase tracking-wide text-amber-300 transition hover:bg-amber-500/20"
+                  >
+                    Leave a review
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </Link>
+                  <GoogleReviewCta />
+                </div>
               </div>
             </>
           )}

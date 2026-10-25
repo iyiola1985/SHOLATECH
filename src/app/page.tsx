@@ -1,24 +1,27 @@
 import Button from "@/components/Button";
 import LiveFeedbackSection from "@/components/LiveFeedbackSection";
 import ScrollScrubHero from "@/components/ScrollScrubHero";
+import { getAllFeedback } from "@/lib/feedback-store";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const reviews = await getAllFeedback();
+
   return (
     <div className="relative bg-transparent">
       {/* Hero + Our Work share the sticky scroll animation */}
       <ScrollScrubHero />
 
-      {/* Client reviews */}
+      {/* Client reviews — SSR so Google can index review text */}
       <div className="relative z-10">
-        <LiveFeedbackSection />
+        <LiveFeedbackSection initialFeed={reviews} />
       </div>
 
       {/* Contact CTA */}
       <section className="relative z-10 bg-slate-950/55 px-4 py-16 backdrop-blur-md sm:px-6 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="type-section-title text-white">
-            Ready to Start Your Project?
-          </h2>
+          <h2 className="type-section-title text-white">Ready to Start Your Project?</h2>
           <p className="type-subtitle mt-4 text-white/90">
             Tell us your idea and we&apos;ll get back with a plan and quote.
           </p>

@@ -6,6 +6,7 @@ import NavSpacer from "@/components/NavSpacer";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import ScrollScrubBackground from "@/components/ScrollScrubBackground";
+import { SiteJsonLd } from "@/components/JsonLd";
 import { siteConfig } from "@/data/config";
 
 const poppins = Poppins({
@@ -16,6 +17,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: `${siteConfig.name} | ${siteConfig.tagline} — Web, Design & Social`,
     template: `%s | ${siteConfig.name}`,
@@ -31,9 +33,15 @@ export const metadata: Metadata = {
     "DJ booking website",
     "tech startup",
     "SholaTech careers",
+    "SholaTech reviews",
   ],
   openGraph: {
     type: "website",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+  },
+  alternates: {
+    canonical: "/",
   },
 };
 
@@ -45,6 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={poppins.variable}>
       <body className="min-h-screen bg-slate-900 font-sans text-base text-white antialiased">
+        <SiteJsonLd />
         <GoogleAnalytics />
         <ScrollScrubBackground />
         <Navbar />
