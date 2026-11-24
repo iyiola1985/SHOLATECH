@@ -19,7 +19,7 @@ export const siteConfig = {
   googleReviewUrl: process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL || "",
   social: {
     twitter: "https://twitter.com/sholatech",
-    instagram: "https://instagram.com/sholatech",
+    instagram: "https://www.instagram.com/shola.tech/",
     linkedin: "https://linkedin.com/company/sholatech",
     facebook: "https://facebook.com/sholatech",
   },

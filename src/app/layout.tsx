@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import NavSpacer from "@/components/NavSpacer";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import GoogleAdSense from "@/components/GoogleAdSense";
 import ScrollScrubBackground from "@/components/ScrollScrubBackground";
 import { SiteJsonLd } from "@/components/JsonLd";
 import { siteConfig } from "@/data/config";
@@ -52,6 +53,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={poppins.variable}>
+      <head>
+        <GoogleAdSense />
+      </head>
       <body className="min-h-screen bg-slate-900 font-sans text-base text-white antialiased">
         <SiteJsonLd />
         <GoogleAnalytics />
